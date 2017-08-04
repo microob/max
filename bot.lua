@@ -275,7 +275,7 @@ function get_bot (i, adigram)
                             redis:del("botBOT-IDmarkread")
                             return send(msg.chat_id_, msg.id_, "<code>بازدید خاموش شد✔️\nاز این پس هیچ پیامی تیک دوم رو دریافت نمیکند👁</code>\n➖➖➖\n🚀کانال ما : @etehad_arazel\n😉سازنده : @persiancyber1️")
                           end
-                        elseif text:match("panel") or text:match("امار") then
+                        elseif text:match("panel") or text:match("پنل") then
                           local gps = redis:scard("botBOT-IDgroups")
                           local sgps = redis:scard("botBOT-IDsupergroups")
                           local usrs = redis:scard("botBOT-IDusers")
@@ -288,7 +288,7 @@ function get_bot (i, adigram)
                           local maxsg = redis:get("botBOT-IDmaxsg") or 200
 
                           local text = 
-[[<b>🚩 امار ربات 🚩</b>
+[[<b>💙 امار ربات 💙</b>
 ➖➖➖➖➖
 <code>💜تعداد چت خصوصی : </code>
 🖤 <b>]] .. tostring(usrs) .. [[</b><code> چت</code> 🖤
