@@ -21,7 +21,7 @@ prtbrown() {
 update() {
   git fetch --all && git reset --hard origin/persian && git pull origin persian && chmod +x bot
     prtgrn "
-      بروزرسانی اطلاعات با موفقیت انجام شد <<
+      بروزرسانی با موفقیت انجام شد <<
   >> Bot's source successfully updated
 "
 }
@@ -39,7 +39,7 @@ create() {
   sed -i 's/BOT-ID/'$i'/g' "$name".lua
     prtgrn "
      ربات شماره "$i" ساخته شد <<
-  : رباتتان را با فرمان زیر اجرا کنید
+  : رباتتان با فرمان اجرا کنید
 >> new bot seccessfuly created
        bot number "$i"
       run your bot by :"
@@ -50,13 +50,13 @@ prtred "
 # Create a new Bot manually
 createmanual() {
    prtgrn '
-        برای ساخت ربات با شماره دلخواه، شماره دلخواه خود را وارد کنید <<
+         شماره دلخواه خود را وارد کنید <<
   >> To creating a new bot manually, Inter the BOT-ID :
 '
   read -rp ' ' ID
     if [[ -e bot-"$ID".lua ]] ; then
       prtred '
-     شماره ربات وارد شده از قبل وجود دارد <<
+     از قبل وجود دارد <<
   >> There is a bot with this number ID
 '
       exit
@@ -66,7 +66,7 @@ createmanual() {
         sed -i 's/BOT-ID/'$ID'/g' bot-"$ID".lua
         prtgrn "
      ربات شماره "$ID" ساخته شد <<
-    : رباتتان را با فرمان زیر اجرا کنید
+    : رباتتان اجرا کنید
   >> new bot seccessfuly created
        bot number "$ID"
       run your bot by :"
@@ -75,7 +75,7 @@ createmanual() {
       "
       else
         prtred "
-     شماره ربات را وارد کنید -- عدد
+     شماره ربات وارد کنید -- عدد
   Inter the bot number --integer
     "
         exit
@@ -86,7 +86,7 @@ createmanual() {
 fix() {
   git reset --hard FETCH_HEAD
   prtgrn '
-  بازیابی اطلاعات به آخرین آپدیت انجام شد <<
+  بازیابی  به آخرین آپدیت انجام شد <<
   >> Database Reseted and Fixed
 '
 }
@@ -103,7 +103,7 @@ autolaunch() {
       TMUX= tmux new-session -d -s $tab "./$ltab"
       tmux detach -s $tab
     done
-    echo -e " \n\e[1;32mربات ها راه اندازی شدند << \e[1;34m| @etehad_arazel |\e[1;32m>> Bots are Running\n\e[0;39;49m"
+    echo -e " \n\e[1;32mربات راه اندازی شد << \e[1;34m| |\e[1;32m>> Bots are Running\n\e[0;39;49m"
     sleep 1200
   done 
 }
@@ -111,7 +111,7 @@ autolaunch() {
 clear() {
   sudo service redis-server start
   prtgrn '
-       : شماره شناسه تبچی که می‌خواهید پاک کنید را وارد کنید  <<
+       : شماره تبچی که می‌خوای پاک کنی را وارد کن  <<
   >> Inter the BOT-ID,that you wanna delete :
 '
   read -rp ' ' ID
@@ -119,7 +119,7 @@ clear() {
   rm -rf bot-"$ID".lua
   redis-cli --raw keys "bot"$ID* | xargs redis-cli del
   prtgrn '
-     ربات شماره '$ID' با موفقیت حذف شد <<
+     ربات شماره '$ID'  حذف شد <<
   >> Bot number '$ID' seccessfuly deleted.
 '
   exit
@@ -127,7 +127,7 @@ clear() {
 # install Bot
 install() {
   prtgrn '
-         آیا قصد نصب پیش نیاز های ربات تبچی را دارید؟ بله|خیر <<
+          قصد نصب پیش نیاز  ربات تبچی را دارید؟ بله|خیر <<
   >> Do you want to install Essentials of Bot? (Y/N):
 '
   read -rp ' ' install
