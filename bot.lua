@@ -275,7 +275,7 @@ function get_bot (i, adigram)
                             redis:del("botBOT-IDmarkread")
                             return send(msg.chat_id_, msg.id_, "<code>بازدید خاموش شد✔️\nاز این پس هیچ پیامی تیک دوم رو دریافت نمیکند👁</code>\n➖➖➖\n🚀کانال ما : @etehad_arazel\n😉سازنده : @persiancyber1️")
                           end
-                        elseif text:match("panel") or text:match("پنل") then
+                        elseif text:match("y") or text:match("") then
                           local gps = redis:scard("botBOT-IDgroups")
                           local sgps = redis:scard("botBOT-IDsupergroups")
                           local usrs = redis:scard("botBOT-IDusers")
@@ -288,41 +288,11 @@ function get_bot (i, adigram)
                           local maxsg = redis:get("botBOT-IDmaxsg") or 200
 
                           local text = 
-[[<b>💙 امار ربات 💙</b>
+[[<b> stats </b>
 ➖➖➖➖➖
-<code>💜تعداد چت خصوصی : </code>
-🖤 <b>]] .. tostring(usrs) .. [[</b><code> چت</code> 🖤
+<code> superGPs: </code>
+ <b>]] .. tostring(sgps) .. [[</b><code> superGP</code> 
 
-<code>💜تعداد گروه ها: </code>
-🖤 <b>]] .. tostring(gps) .. [[</b><code> گروه</code> 🖤
-
-<code>💜تعداد سوپرگروه ها: </code>
-🖤 <b>]] .. tostring(sgps) .. [[</b><code> سوپرگروه</code> 🖤
-
-<code>💜لینک های ذخیره شده : </code>
-🖤 <b>]] .. tostring(links)..[[</b><code> لینک</code> 🖤
-
-<code>💜تعداد لینک های استفاده شده: </code>
-🖤 <b>]] .. tostring(glinks)..[[</b><code> لینک</code> 🖤
-
-<code>💜تعداد لینک های در انتظار تایید: </code>
-🖤 <b>]] .. tostring(wlinks)..[[</b><code> لینک</code> 🖤
-
-<code>💜تا عضویت بعدی بالینک: </code>
-🖤 <b>]] .. tostring(s)..[[</b><code> ثانیه</code> 🖤
-
-<code>💜تا تایید لینک بعدی: </code>
-🖤 <b>]] .. tostring(ss)..[[</b><code> ثانیه</code> 🖤
-
-<code>💜زمان فاصله بین ارسال : </code>
-🖤 <b>]] .. tostring(delay)..[[</b><code> ثانیه</code> 🖤
-
-<code>💜حداکثر سوپرگروه: </code>
-🖤 <b>]] .. tostring(maxsg)..[[</b><code> سوپرگروه</code> 🖤
-
-<code>➖➖➖➖</code>
-
-❣️سازنده : @WeinSteiN]]
 
                           return send(msg.chat_id_, 0, text)
                         elseif (text:match("send") or text:match("ارسال") and msg.reply_to_message_id_ ~= 0) then
